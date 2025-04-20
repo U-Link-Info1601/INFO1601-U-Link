@@ -1,0 +1,47 @@
+[debug] [2025-04-20T17:14:04.737Z] ----------------------------------------------------------------------
+[debug] [2025-04-20T17:14:04.740Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\raeem\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2025-04-20T17:14:04.740Z] CLI Version:   14.2.0
+[debug] [2025-04-20T17:14:04.741Z] Platform:      win32
+[debug] [2025-04-20T17:14:04.741Z] Node Version:  v23.6.1
+[debug] [2025-04-20T17:14:04.741Z] Time:          Sun Apr 20 2025 13:14:04 GMT-0400 (Atlantic Standard Time)
+[debug] [2025-04-20T17:14:04.741Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-20T17:14:05.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-20T17:14:05.038Z] > authorizing via signed-in user (raeemmohammedschool@gmail.com)
+[debug] [2025-04-20T17:14:05.038Z] [iam] checking project info1601-u-link for permissions ["firebase.projects.get"]
+[debug] [2025-04-20T17:14:05.039Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.039Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.040Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link:testIamPermissions [none]
+[debug] [2025-04-20T17:14:05.040Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link:testIamPermissions x-goog-quota-user=projects/info1601-u-link
+[debug] [2025-04-20T17:14:05.040Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-04-20T17:14:05.387Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link:testIamPermissions 200
+[debug] [2025-04-20T17:14:05.388Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-04-20T17:14:05.390Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.390Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.390Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link [none]
+[debug] [2025-04-20T17:14:05.549Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link 200
+[debug] [2025-04-20T17:14:05.550Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/info1601-u-link {"projectNumber":"488113160704","projectId":"info1601-u-link","lifecycleState":"ACTIVE","name":"INFO1601 U-Link","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-04-20T16:53:19.215612Z"}
+[info] 
+[info] === Serving from 'C:\Users\raeem\OneDrive\Desktop\UWI\Semester 2 24-25\INFO 1601\INFO1601FinalProject'...
+[info] 
+[debug] [2025-04-20T17:14:05.563Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.563Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:05.564Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/info1601-u-link/sites 
+[debug] [2025-04-20T17:14:06.612Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/info1601-u-link/sites 200
+[debug] [2025-04-20T17:14:06.613Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/info1601-u-link/sites {"sites":[{"name":"projects/info1601-u-link/sites/info1601-u-link","defaultUrl":"https://info1601-u-link.web.app","type":"DEFAULT_SITE"},{"name":"projects/info1601-u-link/sites/info1601u-link","defaultUrl":"https://info1601u-link.web.app","appId":"1:488113160704:web:7537d1c0e9ed0ab29acee5","type":"USER_SITE"}]}
+[debug] [2025-04-20T17:14:06.614Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:06.614Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:06.614Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link/webApps/-/config [none]
+[debug] [2025-04-20T17:14:07.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link/webApps/-/config 200
+[debug] [2025-04-20T17:14:07.260Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link/webApps/-/config {"projectId":"info1601-u-link","appId":"1:488113160704:web:7537d1c0e9ed0ab29acee5","storageBucket":"info1601-u-link.firebasestorage.app","apiKey":"AIzaSyCggsZgOrCVNTeYVslzCTrV1xOovxkaXnk","authDomain":"info1601-u-link.firebaseapp.com","messagingSenderId":"488113160704"}
+[debug] [2025-04-20T17:14:07.355Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:07.355Z] Checked if tokens are valid: true, expires at: 1745172506377
+[debug] [2025-04-20T17:14:07.356Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link [none]
+[debug] [2025-04-20T17:14:07.623Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link 200
+[debug] [2025-04-20T17:14:07.624Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/info1601-u-link {"projectId":"info1601-u-link","projectNumber":"488113160704","displayName":"INFO1601 U-Link","name":"projects/info1601-u-link","resources":{"hostingSite":"info1601-u-link"},"state":"ACTIVE","etag":"1_07818a9c-9f5c-459b-bdd9-e2090b25df8a"}
+[info] i  hosting[info1601-u-link]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[info1601-u-link]: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [20/Apr/2025:17:14:13 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [20/Apr/2025:17:14:13 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [20/Apr/2025:17:14:14 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [20/Apr/2025:17:14:14 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [20/Apr/2025:17:14:34 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [20/Apr/2025:17:14:34 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [20/Apr/2025:17:14:35 +0000] "GET /__/firebase/init.js?useEmulator=true HTTP/1.1" 200 - "http://localhost:5000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [20/Apr/2025:17:14:35 +0000] \"GET /__/firebase/init.js?useEmulator=true HTTP/1.1\" 200 - \"http://localhost:5000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36\""}}
