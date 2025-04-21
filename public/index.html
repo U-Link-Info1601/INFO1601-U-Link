@@ -1,89 +1,266 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting Is it Working</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U-Link - Connect with your future friends</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="twitter-components.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+    <script src="firebaseConfig.js"></script>
+</head>
+<body>
+    <!-- Authentication check - redirect if not logged in -->
+    <script type="module" src="auth.js"></script>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/11.6.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/11.6.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/11.6.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Navigation Bar -->
+        <nav class="navbar glass-effect">
+            <div class="nav-left">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>U-Link</span>
+                </a>
+            </div>
+            
+            <div class="nav-center">
+                <div class="search-box glass-effect">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search U-Link...">
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <ul class="nav-links">
+                    <li class="active">
+                        <a href="index.html" id="logoutBtn">
+                            <i class="fa-solid fa-right-from-bracket"></i> 
+                            <span>logout</span>
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="user-profile-menu">
+                    <div class="profile-pic" id="user-profile-trigger">
+                        <img src="images/default-avatar.jpg" alt="Profile" id="nav-profile-pic">
+                    </div>
+                    <div class="profile-dropdown glass-effect" id="profile-dropdown">
+                        <div class="profile-header">
+                            <img src="images/default-avatar.jpg" alt="Profile" id="dropdown-profile-pic">
+                            <div class="profile-info">
+                                <h3 id="user-display-name">bob</h3>
+                            </div>
+                        </div>
+                        <ul>
+                            <li><a href="profile.html"><i class="fas fa-user"></i> View Profile</a></li>
+                            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete IS WORKING</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Left Sidebar -->
+            <div class="sidebar left-sidebar glass-effect">
+                <div class="sidebar-section">
+                    <h3>My Profile</h3>
+                    <div class="user-card">
+                        <img src="images/bob.jpg" alt="Profile" id="sidebar-profile-pic">
+                        <div class="user-info">
+                            <h4 id="sidebar-user-name">bob</h4>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Twitter Feed</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="#" id="refresh-tweets-btn"><i class="fas fa-sync-alt"></i> Refresh Tweets</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Main Feed -->
+            <div class="feed-container">
+                <!-- Twitter Feed Header -->
+                <div class="twitter-feed-header glass-effect">
+                    <h2><i class="fab fa-twitter"></i> Twitter Feed</h2>
+                    <button class="add-account-btn" id="add-twitter-account-button">
+                        <i class="fas fa-plus"></i> Create a New Post
+                    </button>
+                </div>
+                
+                <!-- Post Feed -->
+                <div class="post-feed" id="post-feed">
+                    <!-- Twitter content will be loaded here by JavaScript -->
+                    <div class="loading-message glass-effect">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        <p>Loading tweets...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    <!-- Create Post Modal -->
+    <div class="modal" id="create-post-modal">
+        <div class="modal-content glass-effect">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Create New Post</h3>
+                <button class="close-modal-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="create-post-form">
+                    <div class="form-group">
+                        <textarea id="post-content" placeholder="What's happening?" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group" id="image-preview-container" style="display: none;">
+                        <div class="image-preview">
+                            <img id="image-preview" src="#" alt="Preview">
+                            <button type="button" id="remove-image-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="upload-options">
+                            <label for="image-upload" class="image-upload-label">
+                                <i class="far fa-image"></i> Add Image
+                            </label>
+                            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+                        </div>
+                        <button type="submit" id="submit-post-btn">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+    <!-- Import type="module" for ES modules -->
+    <script type="module">
+        // Import the functions from sampleTweets.js
+        import { fetchTweetsFromTwitter, getAllTweets, createNewPost, loadUserPosts } from './sampleTweets.js';
+    
+        // List of Twitter usernames to fetch tweets from
+        const twitterUsernames = ['bob', 'Guild Feast', 'UwiStAgustine'];  // Add more usernames as needed
+    
+        // Fetch tweets from all users in the list
+        window.addEventListener('DOMContentLoaded', function() {
+            // First load any saved user posts from localStorage
+            loadUserPosts();
+            
+            // Then load the sample tweets
+            twitterUsernames.forEach(username => {
+                fetchTweetsFromTwitter(username);  // Fetch tweets for each username in the list
+            });
+            
+            // Display user posts if they exist (the loadUserPosts function will handle this internally)
+        });
+    
+         // Trigger tweet refresh
+          document.getElementById('refresh-tweets-btn').addEventListener('click', function(e) {
+             e.preventDefault();
+             // Clear existing tweets first
+             const feedContainer = document.getElementById('post-feed');
+             feedContainer.innerHTML = `
+                <div class="loading-message glass-effect">
+                    <i class="fas fa-circle-notch fa-spin"></i>
+                    <p>Loading tweets...</p>
+                </div>
+             `;
+             
+             // Fetch tweets again
+             twitterUsernames.forEach(username => {
+                 fetchTweetsFromTwitter(username);  // Refresh tweets for each username
+             });
+         });
+         
+         // Create Post Modal Functionality
+         const createPostBtn = document.getElementById('add-twitter-account-button');
+         const createPostModal = document.getElementById('create-post-modal');
+         const closeModalBtn = document.querySelector('.close-modal-btn');
+         const createPostForm = document.getElementById('create-post-form');
+         const imageUpload = document.getElementById('image-upload');
+         const imagePreviewContainer = document.getElementById('image-preview-container');
+         const imagePreview = document.getElementById('image-preview');
+         const removeImageBtn = document.getElementById('remove-image-btn');
+         
+         // Open modal when create post button is clicked
+         createPostBtn.addEventListener('click', () => {
+             createPostModal.style.display = 'flex';
+         });
+         
+         // Close modal when close button is clicked
+         closeModalBtn.addEventListener('click', () => {
+             createPostModal.style.display = 'none';
+             resetForm();
+         });
+         
+         // Close modal when clicking outside the modal content
+         createPostModal.addEventListener('click', (e) => {
+             if (e.target === createPostModal) {
+                 createPostModal.style.display = 'none';
+                 resetForm();
+             }
+         });
+         
+         // Handle image upload and preview
+         imageUpload.addEventListener('change', (e) => {
+             const file = e.target.files[0];
+             if (file) {
+                 const reader = new FileReader();
+                 reader.onload = (e) => {
+                     imagePreview.src = e.target.result;
+                     imagePreviewContainer.style.display = 'block';
+                 };
+                 reader.readAsDataURL(file);
+             }
+         });
+         
+         // Remove image when remove button is clicked
+         removeImageBtn.addEventListener('click', () => {
+             imageUpload.value = '';
+             imagePreviewContainer.style.display = 'none';
+         });
+         
+         // Handle form submission
+         createPostForm.addEventListener('submit', (e) => {
+             e.preventDefault();
+             
+             const postContent = document.getElementById('post-content').value.trim();
+             if (!postContent) {
+                 alert('Please enter some content for your post.');
+                 return;
+             }
+             
+             // Get the image if one was uploaded
+             let imageUrl = null;
+             if (imageUpload.files.length > 0) {
+                 // In a real app, you would upload the image to a server
+                 // For this demo, we'll use the data URL as the image source
+                 imageUrl = imagePreview.src;
+             }
+             
+             // Create the new post
+             createNewPost(postContent, imageUrl);
+             
+             // Close the modal and reset the form
+             createPostModal.style.display = 'none';
+             resetForm();
+         });
+         
+         // Function to reset the form
+         function resetForm() {
+             createPostForm.reset();
+             imagePreviewContainer.style.display = 'none';
+         }
+       </script>
+    </body>
 </html>
